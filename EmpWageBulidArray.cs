@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +13,6 @@ namespace EmployeeWage
         private int numOfCompany = 0;
         private CompanyEmpWage[] companyEmpWageArray;
         public EmpWageBulidArray()
-
         {
             this.companyEmpWageArray = new CompanyEmpWage[5];
         }
@@ -26,13 +25,12 @@ namespace EmployeeWage
         {
             for(int i = 0; i<numOfCompany; i++)
             {
-                int val = this.computeEmpWage(this.companyEmpWageArray[i]);
-                companyEmpWageArray[i].setTotalEmpwage(val);
+                companyEmpWageArray[i].setTotalEmpwage(this.computeEmpWage(this.companyEmpWageArray[i]));
                 Console.WriteLine(this.companyEmpWageArray[i].tostring());
 
             }
         }
-        public void computeEmpWage(CompanyEmpWage companyEmpWage)
+        public int computeEmpWage(CompanyEmpWage companyEmpWage)
         {
             int empHrs = 0, totalEmpHrs = 0, totalworkingdays = 0;
             while (totalEmpHrs <= companyEmpWage.maxHoursPerMonth && totalworkingdays < companyEmpWage.numOfWorkingDays)
